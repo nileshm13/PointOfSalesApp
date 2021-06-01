@@ -33,14 +33,14 @@ namespace PointOfSalesApp.Controllers
             string message, orderedItems;
             orderedItems = items.ToUpper();
             PointOfSaleTerminal terminal = new PointOfSaleTerminal();
-            SalesTerminal st = new SalesTerminal();
+            SalesTerminal sales = new SalesTerminal();
             try
             {
                 terminal.SetPricing();
                 message = terminal.Scan(ref orderedItems);
                 grandTotal = terminal.CalculateTotal();
 
-                st = new SalesTerminal
+                sales = new SalesTerminal
                 {
                     CartItems = orderedItems,
                     TotalPrice = grandTotal,
@@ -51,7 +51,7 @@ namespace PointOfSalesApp.Controllers
             {
                 Console.WriteLine("Exeption caught in program {0}", e);
             }
-            return Ok(st);
+            return Ok(sales);
         }
 
         /// <summary>

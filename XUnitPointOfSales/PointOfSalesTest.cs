@@ -25,8 +25,8 @@ namespace XUnitPointOfSales
             {
                 string expectedResult = "13.25";
                 var response = await client.GetAsync("pointsales/ABCDABA");
-                var xyz = JsonConvert.DeserializeObject <SalesTerminal>( await response.Content.ReadAsStringAsync());
-                Assert.Equal(expectedResult,xyz.TotalPrice.ToString("0.00"));                
+                var testResult = JsonConvert.DeserializeObject <SalesTerminal>( await response.Content.ReadAsStringAsync());
+                Assert.Equal(expectedResult, testResult.TotalPrice.ToString("0.00"));                
             }          
         }
 
@@ -37,8 +37,8 @@ namespace XUnitPointOfSales
             {                
                 string expectedResult = "6.00";
                 var response = await client.GetAsync("pointsales/CCCCCCC");
-                var xyz = JsonConvert.DeserializeObject<SalesTerminal>(await response.Content.ReadAsStringAsync());
-                Assert.Equal(expectedResult,xyz.TotalPrice.ToString("0.00"));
+                var testResult = JsonConvert.DeserializeObject<SalesTerminal>(await response.Content.ReadAsStringAsync());
+                Assert.Equal(expectedResult, testResult.TotalPrice.ToString("0.00"));
             }
         }
 
@@ -49,8 +49,8 @@ namespace XUnitPointOfSales
             {
                 string expectedResult = "7.25";
                 var response = await client.GetAsync("pointsales/ABCD");
-                var xyz = JsonConvert.DeserializeObject<SalesTerminal>(await response.Content.ReadAsStringAsync());
-                Assert.Equal(expectedResult,xyz.TotalPrice.ToString("0.00"));
+                var testResult = JsonConvert.DeserializeObject<SalesTerminal>(await response.Content.ReadAsStringAsync());
+                Assert.Equal(expectedResult, testResult.TotalPrice.ToString("0.00"));
             }
         }        
     }
